@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Villa.DataAccsess\Villa.DataAccsess.csproj" />
+  </ItemGroup>
+
 </Project>
