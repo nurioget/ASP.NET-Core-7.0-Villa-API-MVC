@@ -21,17 +21,11 @@
     <label>Metrekare</label>
     <input type="text" asp-for="Square" class="form-control" />
     <br />
-    <label>Açıklama</label>
-    <input type="text" asp-for="Description" class="form-control" />
-    <br />
     <label>Kaçıncı Kat</label>
     <input type="text" asp-for="Floor" class="form-control" />
     <br />
     <label>Oda Sayısı</label>
     <input type="text" asp-for="RoomCount" class="form-control" />
-    <br />
-    <label>Açıklama</label>
-    <input type="text" asp-for="Description" class="form-control" />
     <br />
     <label>Ödeme Türü</label>
     <input type="text" asp-for="PaymentType" class="form-control" />
@@ -39,8 +33,8 @@
     <label>Park Alanı</label>
     <select asp-for="HasParkingArea" class="form-control">
         <option>Seçiminizi Yapın</option>
-        <option value="1">Var</option>
-        <option value="0">Yok</option>
+        <option value="true">Var</option>
+        <option value="false">Yok</option>
     </select>
     <br />
     <button class="btn btn-outline-dark">Kaydet</button>
