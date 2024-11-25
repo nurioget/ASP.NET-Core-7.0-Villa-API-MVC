@@ -5,6 +5,7 @@ using Villa.DataAccsess.Abstract;
 using Villa.DataAccsess.Context;
 using Villa.DataAccsess.EntityFramework;
 using Villa.WebUI.Extensions;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +23,7 @@ builder.Services.AddDbContext<VillaContext>(option =>
     option.UseMongoDB(mongoDatabase.Client, mongoDatabase.DatabaseNamespace.DatabaseName);
 });
 
-builder.Services.AddDbContext<VillaContext>(option =>
-{
-    option.UseMongoDB(mongoDatabase.Client, mongoDatabase.DatabaseNamespace.DatabaseName);
-});
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddControllersWithViews();
 
