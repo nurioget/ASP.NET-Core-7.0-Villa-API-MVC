@@ -1,0 +1,45 @@
+﻿@model List<ResultContactDto>
+
+<div class="contact section" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="section-heading text-center">
+                    <h6>| Bizimle İletişime Geçin</h6>
+                    <h2>Emlak Danışmanlarımızla İletişime Geçebilirsiniz</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact-content">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-lg-7">
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d203072.46224004013!2d40.6864004!3d37.3186566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400a8f3113faf3d3%3A0x95c5ac292eee0e!2s13%20Mart%2C%20Artuk%20Bey%20Sitesi%2C%2047200%20Artuklu%2FMardin!5e0!3m2!1str!2str!4v1733425980512!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="item phone">
+                                <img src="~/VillaAgency-1.0.0/assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                                <h6>@item.Phone<br><span>Telefon Numarası</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="item email">
+                                <img src="~/VillaAgency-1.0.0/assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                                <h6>@item.Email<br><span> Email</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @await Component.InvokeAsync("_DefaultMessage")
+        </div>
+    </div>
+</div>
