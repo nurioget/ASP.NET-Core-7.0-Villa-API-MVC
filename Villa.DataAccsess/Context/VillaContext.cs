@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.EntityFrameworkCore.Extensions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +12,7 @@ using Villa.Entity.Entities;
 
 namespace Villa.DataAccsess.Context
 {
-    public class VillaContext : DbContext
+    public class VillaContext : IdentityDbContext<AppUser, AppRole, ObjectId>
     {
         public VillaContext(DbContextOptions options) : base(options)
         {
@@ -17,29 +20,30 @@ namespace Villa.DataAccsess.Context
         }
 
         public DbSet<Banner> Banners { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Counter> Counters { get; set; }
-        public DbSet<Deal> Deals { get; set; }
-        public DbSet<Feature> Features { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Quest> Quests { get; set; }
-        public DbSet<Video> Videos { get; set; }
-        public DbSet<SubHeader> SubHeaders { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Counter> Counter { get; set; }
+        public DbSet<Deal> Deal { get; set; }
+        public DbSet<Feature> Feature { get; set; }
+        public DbSet<Message> Message { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Quest> Quest { get; set; }
+        public DbSet<Video> Video { get; set; }
+        public DbSet<SubHeader> SubHeader { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Banner>().ToCollection("Banners");
-            modelBuilder.Entity<Contact>().ToCollection("Contact");
-            modelBuilder.Entity<Counter>().ToCollection("Counter");
-            modelBuilder.Entity<Deal>().ToCollection("Deal");
-            modelBuilder.Entity<Feature>().ToCollection("Feature");
-            modelBuilder.Entity<Message>().ToCollection("Message");
-            modelBuilder.Entity<Product>().ToCollection("Product");
-            modelBuilder.Entity<Quest>().ToCollection("Quest");
-            modelBuilder.Entity<Video>().ToCollection("Video");
-            modelBuilder.Entity<SubHeader>().ToCollection("SubHeaders");
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<Banner>().ToCollection("Banners");
+            //modelBuilder.Entity<Contact>().ToCollection("Contacts");
+            //modelBuilder.Entity<Counter>().ToCollection("Counters");
+            //modelBuilder.Entity<Deal>().ToCollection("Deals");
+            //modelBuilder.Entity<Feature>().ToCollection("Features");
+            //modelBuilder.Entity<Message>().ToCollection("Messages");
+            //modelBuilder.Entity<Product>().ToCollection("Products");
+            //modelBuilder.Entity<Quest>().ToCollection("Quests");
+            //modelBuilder.Entity<Video>().ToCollection("Videos");
+            //modelBuilder.Entity<SubHeader>().ToCollection("SubHeaders");
 
         }
     }
